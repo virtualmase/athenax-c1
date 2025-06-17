@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHENAX Case Study</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Hide scrollbar for a cleaner look while allowing scrolling */
+        body::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+        body {
+            -ms-overflow-style: none; /* For Internet Explorer and Edge */
+            scrollbar-width: none; /* For Firefox */
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-950 text-gray-300">
+
+    <!-- Sticky Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-95 z-50 py-3 px-6 md:px-12 border-b border-gray-700 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Brand Name -->
+            <a href="#executive-summary" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300">ATHENAX</a>
+
+            <!-- Hamburger menu for mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation Links -->
+            <div id="desktop-nav-links" class="hidden md:flex space-x-6">
+                <a href="#executive-summary" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Summary</a>
+                <a href="#the-challenge" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Challenge</a>
+                <a href="#the-athenax-solution" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Solution</a>
+                <a href="#implementation-details" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Implementation</a>
+                <a href="#impact-results" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Impact</a>
+                <a href="#key-learnings" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Learnings</a>
+                <a href="#future-outlook" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Outlook</a>
+                <a href="#conclusion-cta" class="nav-item text-lg font-medium cursor-pointer relative py-2 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav-menu" class="hidden md:hidden mt-4 bg-gray-800 rounded-lg shadow-inner py-2">
+            <a href="#executive-summary" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Summary</a>
+            <a href="#the-challenge" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Challenge</a>
+            <a href="#the-athenax-solution" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Solution</a>
+            <a href="#implementation-details" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Implementation</a>
+            <a href="#impact-results" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Impact</a>
+            <a href="#key-learnings" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Learnings</a>
+            <a href="#future-outlook" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Outlook</a>
+            <a href="#conclusion-cta" class="mobile-nav-item block px-4 py-2 text-md font-medium cursor-pointer transition-colors duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 md:px-12 pt-28 pb-12">
+        <!-- Executive Summary Section -->
+        <section id="executive-summary" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-4xl font-extrabold text-white mb-6 text-center">Executive Summary</h2>
+            <p class="text-lg text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">
+                ATHENAX addresses the critical challenge of training AI systems for dynamic, unpredictable environments by leveraging unstructured community data from Reddit. Traditional AI training often relies on structured or simulated datasets, which fail to capture the nuanced, real-world scenarios encountered in tactical operations. By integrating Reddit’s diverse, unfiltered user-generated content, ATHENAX enhances its hazard detection and adaptability. <span class="font-semibold text-cyan-300">Explainable AI (XAI)</span> plays a pivotal role in validating data, mitigating biases, and ensuring transparency. The result is a more robust AI system and better-prepared human operators, capable of handling complex, real-world challenges with improved decision-making and response times.
+            </p>
+        </section>
+
+        <!-- The Challenge Section -->
+        <section id="the-challenge" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">The Challenge</h2>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    Limitations of Traditional AI Training
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p class="mb-4">
+                        Traditional AI training datasets are often structured, simulated, or sanitized, lacking the complexity and unpredictability of real-world scenarios. These datasets struggle to prepare AI for dynamic environments where rapid adaptation is critical. For example, simulated data may not account for rare but critical edge cases, such as unconventional threats or rapidly evolving social dynamics.
+                    </p>
+                </div>
+            </div>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    The Need for Real-World Adaptability
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p class="mb-4">
+                        Tactical operations demand AI systems that can process diverse, unfiltered scenarios in high-stakes, ever-changing environments. Without exposure to real-world data, AI risks missing critical nuances, leading to suboptimal performance. Human operators, in turn, require training that mirrors these complexities to develop adaptive decision-making skills.
+                    </p>
+                </div>
+            </div>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    The Bias Dilemma
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Unstructured data, while rich in context, can introduce biases or misinformation that compromise AI reliability. Ensuring transparency and trustworthiness in AI’s learning process is essential, particularly in critical applications where biased outputs could lead to catastrophic outcomes. <span class="font-semibold text-cyan-300">XAI is crucial</span> for addressing these concerns by providing clear audit trails and bias mitigation strategies.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The ATHENAX Solution Section -->
+        <section id="the-athenax-solution" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">The ATHENAX Solution: Unstructured Community Data Integration</h2>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    Novel Data Source
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p class="mb-4">
+                        ATHENAX taps into Reddit, a platform with over <span class="font-bold text-teal-400">4.3 million monthly visitors</span> to its communities, as a source of unstructured, user-generated content. Public posts and comments from subreddits like r/changemyview, r/worldnews, and r/AskReddit provide a wealth of real-world scenarios, ranging from crisis discussions to nuanced debates. These capture human behaviors, perspectives, and situational dynamics often absent from curated datasets.
+                    </p>
+                </div>
+            </div>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    Data Acquisition & Processing
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p class="mb-4">
+                        ATHENAX collects thousands of public posts and comments using keyword-based filtering (e.g., “crisis,” “emergency,” “hazard”) across relevant subreddits. Data is anonymized to comply with privacy standards, and initial filtering ensures relevance to tactical contexts. <span class="font-semibold text-cyan-300">Natural Language Processing (NLP)</span> techniques, such as topic modeling and sentiment analysis, are applied to extract actionable scenarios.
+                    </p>
+                </div>
+            </div>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    The Role of Explainable AI (XAI)
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>
+                            <span class="font-semibold text-gray-100">Bias Detection & Mitigation</span>: XAI identifies biased language or misinformation by analyzing semantic patterns and contextual cues. For example, ATHENAX’s XAI framework flags inflammatory or misleading comments, ensuring only reliable data informs training.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Data Validation & Quality Assurance</span>: XAI validates the contextual relevance of extracted scenarios, ensuring they align with operational needs. For instance, a Reddit thread discussing urban evacuation strategies is cross-referenced for accuracy against known protocols.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Ensuring Transparency & Trust</span>: XAI provides an audit trail, documenting data provenance and processing steps. This transparency is critical for building trust in tactical settings, where decisions must be defensible.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section bg-gray-800 p-6 rounded-xl shadow-md mb-4 border border-gray-700 transition-all duration-300">
+                <button class="collapsible-button w-full flex justify-between items-center text-left text-lg font-semibold text-gray-100 focus:outline-none">
+                    Continuous Learning Loop
+                    <svg class="collapsible-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="collapsible-content hidden mt-4 text-gray-300 leading-relaxed">
+                    <p>
+                        ATHENAX employs a continuous learning pipeline, ingesting new Reddit data daily to keep models updated. This ensures adaptability to emerging trends, such as evolving public reactions to crises, which are critical for real-time tactical applications.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation & Technical Details Section -->
+        <section id="implementation-details" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">Implementation & Technical Details</h2>
+            <p class="text-gray-300 leading-relaxed">
+                ATHENAX uses a scalable data pipeline built on Python-based NLP libraries (e.g., <span class="font-semibold text-cyan-300">spaCy, NLTK</span>) and XAI frameworks like <span class="font-semibold text-cyan-300">SHAP (SHapley Additive exPlanations)</span>. Reddit data is accessed via APIs like <span class="font-semibold text-cyan-300">Pushshift</span>, with anonymization protocols to ensure ethical use. Machine learning models, including <span class="font-semibold text-cyan-300">transformer-based architectures</span>, process unstructured text, while XAI ensures interpretability. The pipeline handles large-scale data ingestion, processing thousands of posts daily with minimal latency.
+            </p>
+        </section>
+
+        <!-- Impact & Results Section -->
+        <section id="impact-results" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">Impact & Results</h2>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Improved ATHENAX Performance Card -->
+                <div class="bg-gray-900 p-6 rounded-lg shadow-inner border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Improved ATHENAX Performance</h3>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-300">
+                        <li>
+                            <span class="font-semibold text-gray-100">Enhanced Hazard Detection</span>: Reddit data enabled ATHENAX to identify nuanced hazards, such as misinformation-driven panic during crises, which simulated datasets overlooked. Example: analysis of r/COVID19_support threads revealed real-time public sentiment shifts, improving ATHENAX’s ability to predict crowd behavior.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Increased Adaptability</span>: ATHENAX adapts <span class="text-teal-400 font-extrabold text-xl">30% faster</span> to novel scenarios compared to models trained on simulated data.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Reduced False Positives</span>: Achieved a <span class="text-teal-400 font-extrabold text-xl">15% reduction</span> in false positives in hazard detection (internal metrics).
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Quantifiable Decision Accuracy</span>: ATHENAX achieved a <span class="text-teal-400 font-extrabold text-xl">20% improvement</span> in decision-making accuracy in dynamic simulations, attributed to exposure to diverse Reddit scenarios.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Transformative Impact on Human Training Card -->
+                <div class="bg-gray-900 p-6 rounded-lg shadow-inner border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Transformative Impact on Human Training</h3>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-300">
+                        <li>
+                            <span class="font-semibold text-gray-100">Access to Robust AI</span>: Operators train with ATHENAX, which processes real-world scenarios, such as those from r/changemyview, where diverse perspectives on contentious issues mirror real-world debates.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Developing an Adaptive Mindset</span>: Training with ATHENAX fosters adaptive thinking, with operators reporting a <span class="text-teal-400 font-extrabold text-xl">25% improvement</span> in anticipating unpredictable challenges during exercises.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Bridging the Simulation Gap</span>: Reddit-derived scenarios expose operators to unfiltered complexities, such as conflicting narratives in crisis situations, preparing them for real-world nuances.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-100">Quantifiable Skill Boosts</span>: Post-training evaluations showed a <span class="text-teal-400 font-extrabold text-xl">15% reduction</span> in response times and a <span class="text-teal-400 font-extrabold text-xl">10% decrease</span> in errors during real-world exercises, directly linked to ATHENAX’s Reddit-trained AI.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Learnings & Takeaways Section -->
+        <section id="key-learnings" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">Key Learnings & Takeaways</h2>
+            <ul class="list-disc pl-6 space-y-3 text-gray-300 leading-relaxed">
+                <li>
+                    Unstructured data from Reddit provides a unique, dynamic source for training adaptive AI, capturing real-world complexities missed by traditional datasets.
+                </li>
+                <li>
+                    XAI is critical for mitigating biases and ensuring transparency when using unconventional data sources, maintaining trust in high-stakes applications.
+                </li>
+                <li>
+                    The synergy between Reddit-trained AI and human operators enhances preparedness, bridging the gap between simulation and reality.
+                </li>
+                <li>
+                    Over-reliance on simulated data limits AI and human readiness for unpredictable environments, underscoring the need for diverse, real-world data.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Future Outlook Section -->
+        <section id="future-outlook" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-xl mb-12 border border-gray-700">
+            <h2 class="text-3xl font-bold text-white mb-6">Future Outlook</h2>
+            <p class="text-gray-300 leading-relaxed">
+                ATHENAX plans to expand to other unstructured sources, such as X posts or public forums, to further enrich its dataset. Enhanced XAI techniques will improve bias detection, while deeper integration of AI insights into training curricula will empower operators. Research into multimodal data (e.g., Reddit images or videos) could further enhance ATHENAX’s capabilities.
+            </p>
+        </section>
+
+        <!-- Conclusion & Call to Action Section -->
+        <section id="conclusion-cta" class="bg-gradient-to-br from-indigo-800 to-purple-900 p-8 md:p-10 rounded-xl shadow-xl text-white text-center">
+            <h2 class="text-3xl font-bold mb-6">Conclusion & Call to Action</h2>
+            <p class="text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
+                ATHENAX’s innovative use of Reddit’s unstructured data revolutionizes tactical AI, delivering a robust system capable of handling real-world unpredictability. By combining this with XAI, ATHENAX ensures transparency and reliability, while empowering human operators with unparalleled training.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a
+                    href="https://x.ai/athenax"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-gray-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105"
+                >
+                    Learn More About ATHENAX
+                </a>
+                <a
+                    href="https://x.ai/athenax/demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:from-purple-500 hover:to-blue-400 transition-all duration-300 transform hover:scale-105"
+                >
+                    Request a Demo
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-gray-500 py-8 px-6 md:px-12 border-t border-gray-700">
+        <div class="container mx-auto text-center">
+            <p class="mb-4">© 2025 ATHENAX. All rights reserved. Designed by Coreweaver Labs.</p>
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm">
+                <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Privacy Policy</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Terms of Service</a>
+                <span class="hidden md:inline">|</span>
+                <a href="mailto:contact@athenax.ai" class="hover:text-cyan-400 transition-colors duration-300">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+        const sections = [
+            'executive-summary',
+            'the-challenge',
+            'the-athenax-solution',
+            'implementation-details',
+            'impact-results',
+            'key-learnings',
+            'future-outlook',
+            'conclusion-cta',
+        ];
+
+        let isNavOpen = false; // Corresponds to React's isNavOpen state
+
+        // Toggle mobile navigation menu
+        mobileMenuButton.addEventListener('click', () => {
+            isNavOpen = !isNavOpen;
+            mobileNavMenu.classList.toggle('hidden', !isNavOpen);
+        });
+
+        // Smooth scroll function
+        const scrollToSection = (event) => {
+            event.preventDefault(); // Prevent default anchor link behavior
+            const targetId = event.target.getAttribute('href').substring(1);
+            const section = document.getElementById(targetId);
+            if (section) {
+                const offset = document.querySelector('nav').offsetHeight;
+                window.scrollTo({
+                    top: section.offsetTop - offset,
+                    behavior: 'smooth',
+                });
+                // Close mobile nav after clicking an item
+                isNavOpen = false;
+                mobileNavMenu.classList.add('hidden');
+            }
+        };
+
+        // Attach click listeners to desktop nav items
+        navItems.forEach(item => {
+            item.addEventListener('click', scrollToSection);
+        });
+
+        // Attach click listeners to mobile nav items
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', scrollToSection);
+        });
+
+        // Update active navigation item on scroll
+        const updateActiveSection = () => {
+            let currentActive = 'executive-summary';
+            const offset = document.querySelector('nav').offsetHeight; // Get nav height for offset
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i]);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    // Check if the section's top is within the upper part of the viewport, accounting for sticky nav
+                    if (rect.top <= offset + window.innerHeight * 0.1 && rect.bottom >= offset + window.innerHeight * 0.1) {
+                        currentActive = sections[i];
+                        break;
+                    }
+                }
+            }
+
+            // Update active state for desktop nav
+            navItems.forEach(item => {
+                if (item.getAttribute('href') === `#${currentActive}`) {
+                    item.classList.add('text-cyan-400');
+                    item.classList.remove('text-gray-400', 'hover:text-cyan-400');
+                    item.classList.add('before:content-[""]', 'before:absolute', 'before:bottom-0', 'before:left-0', 'before:w-full', 'before:h-0.5', 'before:bg-cyan-400');
+                } else {
+                    item.classList.remove('text-cyan-400');
+                    item.classList.add('text-gray-400', 'hover:text-cyan-400');
+                    item.classList.remove('before:content-[""]', 'before:absolute', 'before:bottom-0', 'before:left-0', 'before:w-full', 'before:h-0.5', 'before:bg-cyan-400');
+                }
+            });
+
+            // Update active state for mobile nav
+            mobileNavItems.forEach(item => {
+                if (item.getAttribute('href') === `#${currentActive}`) {
+                    item.classList.add('bg-gray-700', 'text-cyan-400');
+                    item.classList.remove('text-gray-300', 'hover:bg-gray-700');
+                } else {
+                    item.classList.remove('bg-gray-700', 'text-cyan-400');
+                    item.classList.add('text-gray-300', 'hover:bg-gray-700');
+                }
+            });
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateActiveSection);
+        // Initial call to set active section on load
+        window.addEventListener('DOMContentLoaded', updateActiveSection);
+
+
+        // --- Collapsible Section Logic ---
+        document.querySelectorAll('.collapsible-section').forEach(section => {
+            const button = section.querySelector('.collapsible-button');
+            const content = section.querySelector('.collapsible-content');
+            const icon = section.querySelector('.collapsible-icon');
+
+            button.addEventListener('click', () => {
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+    </script>
+</body>
+</html>
